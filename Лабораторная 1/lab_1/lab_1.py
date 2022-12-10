@@ -66,7 +66,7 @@ class Sample:
 
         :param water: Объем добавляемой воды, мл
 
-        >>> sample = Sample(10, 'Тантал')
+        >>> sample = Sample(10, 'Спирт')
         >>> sample.add_water_to_sample(15)
         """
         if not isinstance(water, (int, float)) or water < 0:
@@ -79,7 +79,7 @@ class Sample:
 
         :param add_material: Объем добавляемого образца, мл
 
-        >>> sample = Sample(10, 'Тантал')
+        >>> sample = Sample(10, 'Спирт')
         >>> sample.add_material_to_sample(40)
         """
         if not isinstance(add_material, (int, float)) or add_material < 0:
@@ -131,7 +131,7 @@ class Coffee:
         """
         Добавляется молоко, если значение True
            
-        :param milk: Порция молока, г
+        :param milk: Порция молока, мл
         """
         self.coffee_size += milk
 
