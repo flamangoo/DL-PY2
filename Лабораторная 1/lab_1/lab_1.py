@@ -30,6 +30,9 @@ class Keyboard:
         """
         Метод включает подсветку, если значение True
 
+        >>> keyboard = Keyboard(64, 'Красный', False)
+        >>> keyboard.backlight_on()  # меняет значение на True
+
         """
 
     def backlight_off(self) -> None:
@@ -37,7 +40,7 @@ class Keyboard:
         Метод выключает подсветку
 
         >>> keyboard = Keyboard(64, 'Синий', True)
-        >>> keyboard.backlight_off()
+        >>> keyboard.backlight_off()  # меняет значение на False
         """
 
 
@@ -119,8 +122,9 @@ class Coffee:
         print('Добавляем сахар...')
         """
         Добавляется сахар, если значение True
-            
+
         :param sugar: Порция сахара, г
+        
         """
         self.coffee_size += sugar
 
@@ -130,7 +134,7 @@ class Coffee:
         print('Добавляем молоко...')
         """
         Добавляется молоко, если значение True
-           
+
         :param milk: Порция молока, мл
         """
         self.coffee_size += milk
