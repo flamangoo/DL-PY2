@@ -41,5 +41,4 @@ if __name__ == '__main__':
     ]
     for book in list_books:
         print(book)  # проверяем метод __str__
-
     print(list_books)  # проверяем метод __repr__
