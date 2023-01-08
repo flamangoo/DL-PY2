@@ -49,8 +49,6 @@ class Library:
             return self.books[-1].id_ + 1  # возвращаем следующий id
 
     def get_index_by_book_id(self, id_) -> int:
-        if id_ <= 0 or not isinstance(id_, int):
-            raise TypeError('id должен быть целым положительным числом')
         for index, book in enumerate(self.books):
             if id_ == book.id_:
                 return index
