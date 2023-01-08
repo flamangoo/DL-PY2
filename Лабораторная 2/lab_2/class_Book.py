@@ -14,14 +14,17 @@ BOOKS_DATABASE = [
 
 class Book:
     def __init__(self, id_: int, name: str, pages: int):
-        if id_ <= 0 or not isinstance(id_, int):
+        if not isinstance(id_, int):
             raise TypeError('id должен быть целым положительным числом')
-        self.id_ = id_
+        if id_ <= 0:
+            raise ValueError('id должен быть больше 0')
         if not isinstance(name, str):
             raise TypeError('Переменная name (название книги) должна быть типа str')
-        self.name = name
         if pages <= 0 or not isinstance(pages, int):
             raise TypeError('Количество страниц должно быть целым положительным числом')
+
+        self.id_ = id_
+        self.name = name
         self.pages = pages
 
     def __str__(self) -> str:
