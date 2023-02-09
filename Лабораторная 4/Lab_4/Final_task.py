@@ -24,9 +24,10 @@ class Plant:
         """ Печать экземпляра класса """
         return f'Это растение. Возраст - {self.age} лет, высота - {self.height} м, объем почвы: {self.soil_volume} л.'
 
+    # Хоть для абстрактного класса можно не создавать repr(), я его создала, так как написано в задании
     def __repr__(self) -> str:
         """ Вид экземпляра класса при примененении repr() """
-        return f'{self.__class__.__name__}(age={self.age}, height={self.height}, soil_volume={self.soil_volume!r})'
+        return f'{self.__class__.__name__}(age={self.age}, height={self.height}, soil_volume={self.soil_volume})'
 
     def _init_age(self, age: int) -> None:
         """
@@ -96,6 +97,9 @@ class Plant:
         if fertilizer < 0:
             raise ValueError('Количество удобрения должно быть положительным числом')
         self._soil_volume += fertilizer
+        
+        '''Вообще, в методе add_fertilizer можно реализовать разные соотношения удобрения, расчеты пропорций, 
+        еще что-нибудь в зависимости от вида растения, чтобы перегрузка метода не была столь абстрактной'''
 
 
 class Araucaria(Plant):
@@ -218,12 +222,12 @@ class Fittonia(Plant):
         """
         Добавить удобрение в почву.
         Является перегрузкой родительского класса, так как удобряем растение
-        :param fertilizer: удобрение, в литрах (не больше 0.3 л, поэтому float)
+        :param fertilizer: удобрение, в литрах (не больше 0.1 л, поэтому float)
         """
         if not isinstance(fertilizer, float):
-            raise TypeError('Количество удобрения типа float и не должно быть больше 0.3 литра')
-        if fertilizer > 0.3:
-            raise ValueError('Количество удобрения не должно быть больше 0.3 литра')
+            raise TypeError('Количество удобрения типа float и не должно быть больше 0.1 литра')
+        if fertilizer > 0.1:
+            raise ValueError('Количество удобрения не должно быть больше 0.1 литра')
         if fertilizer < 0:
             raise ValueError('Количество удобрения должно быть положительным числом')
         self._soil_volume += fertilizer
